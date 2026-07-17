@@ -340,13 +340,12 @@
         }
 
         /* ==================================================
-           ENCABEZADO LAURENA
+           ENCABEZADO LAURENA — SIN LOGO
            ================================================== */
         :root {
             --laurena-header-bg: #f8f3ec;
             --laurena-page-bg: #f9f6f1;
             --laurena-text: #4a4a42;
-            --laurena-gold: #c49a6c;
             --laurena-line: #ddd4c9;
         }
 
@@ -367,55 +366,22 @@
 
         .laurena-nav {
             width: 100%;
-            max-width: 1380px;
+            max-width: 1120px;
             min-height: 80px;
             margin: 0 auto;
             padding: 0 28px;
             display: flex;
             align-items: center;
-            gap: clamp(24px, 4vw, 70px);
-            white-space: nowrap;
-        }
-
-        .laurena-brand {
-            flex: 0 0 auto;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--laurena-text);
-            text-decoration: none;
-        }
-
-        .laurena-brand-logo {
-            width: 52px;
-            height: 44px;
-            object-fit: contain;
-            display: block;
-            flex-shrink: 0;
-        }
-
-        .laurena-brand-name {
-            font-family: Georgia, serif;
-            font-size: 25px;
-            line-height: 1;
-            letter-spacing: 0.2px;
+            justify-content: center;
         }
 
         .laurena-menu {
-            flex: 1 1 auto;
-            min-width: 0;
+            width: 100%;
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: clamp(28px, 4.6vw, 78px);
-            overflow-x: auto;
-            overflow-y: hidden;
-            scrollbar-width: none;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .laurena-menu::-webkit-scrollbar {
-            display: none;
+            justify-content: space-between;
+            gap: 24px;
+            white-space: nowrap;
         }
 
         .laurena-menu a {
@@ -424,7 +390,7 @@
             color: var(--laurena-text);
             text-decoration: none;
             font-family: Georgia, serif;
-            font-size: clamp(17px, 1.45vw, 22px);
+            font-size: clamp(17px, 1.55vw, 23px);
             line-height: 1;
             padding: 12px 0 11px;
         }
@@ -446,11 +412,7 @@
             left: 0;
         }
 
-        .laurena-header-spacer {
-            display: none;
-        }
-
-        @media (max-width: 900px) {
+        @media (max-width: 700px) {
             body {
                 padding-top: 76px;
             }
@@ -458,31 +420,19 @@
             .laurena-nav {
                 min-height: 74px;
                 padding: 0 18px;
-                gap: 24px;
-                overflow: hidden;
-            }
-
-            .laurena-brand-logo {
-                width: 45px;
-                height: 38px;
-            }
-
-            .laurena-brand-name {
-                font-size: 22px;
             }
 
             .laurena-menu {
-                justify-content: flex-start;
-                gap: 34px;
-                padding-right: 20px;
+                gap: 0;
             }
 
             .laurena-menu a {
-                font-size: 18px;
+                font-size: clamp(12px, 3.15vw, 15px);
+                padding: 11px 0 10px;
             }
         }
 
-        @media (max-width: 550px) {
+        @media (max-width: 390px) {
             body {
                 padding-top: 70px;
             }
@@ -490,31 +440,10 @@
             .laurena-nav {
                 min-height: 68px;
                 padding: 0 12px;
-                gap: 18px;
-            }
-
-            .laurena-brand {
-                gap: 5px;
-            }
-
-            .laurena-brand-logo {
-                width: 38px;
-                height: 32px;
-            }
-
-            .laurena-brand-name {
-                font-size: 19px;
-            }
-
-            .laurena-menu {
-                gap: 27px;
-                padding-right: 14px;
             }
 
             .laurena-menu a {
-                font-size: 16px;
-                padding-top: 10px;
-                padding-bottom: 10px;
+                font-size: 11.5px;
             }
         }
 
@@ -530,21 +459,14 @@
     <!-- Encabezado de navegación Laurena -->
     <header class="laurena-header">
         <nav class="laurena-nav" aria-label="Navegación principal">
-            <a class="laurena-brand" href="https://luz-y-esencia.my.canva.site/laurena-catalogo" target="_top" aria-label="Laurena - Inicio">
-                <img class="laurena-brand-logo" src="data:image/png;base64,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" alt="Logo Laurena">
-                <span class="laurena-brand-name">Laurena</span>
-            </a>
-
-            <div class="laurena-menu">
-                <a href="https://luz-y-esencia.my.canva.site/laurena-catalogo" target="_top">Inicio</a>
-                <a href="https://luz-y-esencia.my.canva.site/laurena-catalogo" target="_top">Catálogo</a>
+<div class="laurena-menu">
+                <a href="TU_URL_INICIO" target="_top">Inicio</a>
+                <a href="TU_URL_CATALOGO" target="_top">Catálogo</a>
                 <a href="#" class="activo" aria-current="page">Reseñas</a>
-                <a href="https://luz-y-esencia.my.canva.site/medios-de-pago" target="_top">Formas de pago</a>
-                <a href="https://form.jotform.com/sarushvans/laurena---pedidos" target="_top">Haz tu pedido</a>
+                <a href="TU_URL_FORMAS_PAGO" target="_top">Formas de pago</a>
+                <a href="TU_URL_PEDIDO" target="_top">Haz tu pedido</a>
             </div>
-
-            <div class="laurena-header-spacer" aria-hidden="true"></div>
-        </nav>
+</nav>
     </header>
 
 
